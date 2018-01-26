@@ -9,10 +9,10 @@ public interface Cmp extends Application {
 	public String cmpTwoFiles(String fileNameA, String fileNameB, Boolean isPrintCharDiff, Boolean isPrintSimplify, Boolean isPrintOffsetDiff)
 			throws Exception;
 	
-	public String cmpFileAndStdin(String fileName, InputStream stdin)
+	public String cmpFileAndStdin(String fileName, InputStream stdin, Boolean isPrintCharDiff, Boolean isPrintSimplify, Boolean isPrintOffsetDiff)
 			throws Exception;
 	
-	public String cmpTwoStdin(InputStream stdin) 
+	public String cmpStdin(InputStream stdin, Boolean isPrintCharDiff, Boolean isPrintSimplify, Boolean isPrintOffsetDiff)
 			throws Exception;
 
 }
