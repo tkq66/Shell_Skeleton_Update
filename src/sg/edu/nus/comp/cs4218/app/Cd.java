@@ -9,7 +9,9 @@ public interface Cd extends Application {
 	 * Change the environment context to a different directory. 
 	 * @param path String of the path to a directory
 	 * @param env Environment context 
+	 * @throws Exception
 	 */
-	public void changeToDirectory(String path, Environment env);
+	public void changeToDirectory(String path, Environment env) 
+			throws Exception;
 	
 }

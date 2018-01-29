@@ -6,7 +6,9 @@ public interface Exit extends Application {
 
 	/**
 	 * Terminate shell.
+	 * @throws Exception
 	 */
-	public void terminateExecution();
+	public void terminateExecution() 
+			throws Exception;
 	
 }
