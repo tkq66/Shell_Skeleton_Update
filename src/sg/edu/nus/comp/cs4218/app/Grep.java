@@ -13,6 +13,7 @@ public interface Grep extends Application {
 	 * @param isInvert Boolean option to filter the output that doesn't match 
 	 * the pattern
 	 * @param stdin InputStream containing arguments from Stdin
+	 * @throws Exception
 	 */
 	public String grepFromStdin(String pattern, Boolean isInvert, InputStream stdin) 
 			throws Exception;
@@ -24,6 +25,7 @@ public interface Grep extends Application {
 	 * @param isInvert Boolean option to filter the output that doesn't match 
 	 * the pattern
 	 * @param fileNames Array of file names
+	 * @throws Exception
 	 */
 	public String grepFromMultipleFiles(String pattern, Boolean isInvert, String... fileNames) 
 			throws Exception;

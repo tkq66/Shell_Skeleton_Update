@@ -7,34 +7,38 @@ import sg.edu.nus.comp.cs4218.Application;
 public interface Paste extends Application {
 	
 	/**
-	 * Returns string of Stdin in which Stdin have only 1 argument.
-	 * @param stdin InputString containing arguments from Stdin
+	 * Returns string of line-wise concatenated 
+	 * (tab-separated) Stdin arguments. If only 
+	 * one Stdin arg is specified, echo back the
+	 * Stdin. 
+	 * @param stdin InputStream containing 
+	 * arguments from Stdin
+	 * @throws Exception
 	 */
-	public String printSingleArgStdin(InputStream stdin);
+	public String mergeStdin(InputStream stdin) 
+			throws Exception;
 	
 	/**
-	 * Returns string of line-wise concatenated (tab-separated) Stdin arguments.
-	 * @param stdin InputString containing arguments from Stdin
+	 * Returns string of line-wise concatenated 
+	 * (tab-separated) files. If only one file
+	 * is specified, echo back the file content. 
+	 * @param fileName Array of file names to 
+	 * be read and merged
+	 * @throws Exception
 	 */
-	public String mergeStdin(InputStream stdin);
+	public String mergeFile(String... fileName) 
+			throws Exception;
 	
 	/**
-	 * Returns string inside a file. 
-	 * @param fileName String of file to be read from
+	 * Returns string of line-wise concatenated 
+	 * (tab-separated) files and Stdin arguments.
+	 * @param stdin InputStream containing 
+	 * arguments from Stdin
+	 * @param fileName Array of file names to be 
+	 * read and merged
+	 * @throws Exception
 	 */
-	public String printSingleFile(String fileName);
-	
-	/**
-	 * Returns string of line-wise concatenated (tab-separated) files. 
-	 * @param fileNames Array of file names to be read and merged.
-	 */
-	public String mergeFiles(String[] fileNames);
-	
-	/**
-	 * Returns string of line-wise concatenated (tab-separated) files and Stdin arguments.
-	 * @param fileNames Array of file names to be read and merged.
-	 * @param stdin InputString containing arguments from Stdin
-	 */
-	public String mergeFilesAndStdin(String[] fileNames, InputStream stdin);
+	public String mergeFileAndStdin(InputStream stdin, String... fileName) 
+			throws Exception;
 
 }
