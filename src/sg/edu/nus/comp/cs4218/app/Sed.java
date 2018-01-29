@@ -17,7 +17,8 @@ public interface Sed extends Application {
 	 * @param replacement String to replace the matched 
 	 * pattern
 	 * @param replacementIndex Integer specifying the index 
-	 * of the matched substring to be replaced
+	 * of the matched substring to be replaced (default is
+	 * 0)
 	 * @param fileName String specifying name of the file
 	 * @throws Exception
 	 */
@@ -35,7 +36,8 @@ public interface Sed extends Application {
 	 * @param replacement String to replace the matched 
 	 * pattern
 	 * @param replacementIndex Integer specifying the index 
-	 * of the matched substring to be replaced
+	 * of the matched substring to be replaced (default is
+	 * 0)
 	 * @param stdin InputStream containing arguments from Stdin
 	 * @throws Exception
 	 */
