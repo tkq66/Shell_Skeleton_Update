@@ -8,16 +8,19 @@ import sg.edu.nus.comp.cs4218.Application;
 public interface Split extends Application {
 	
 	/**
-	 * Split a file into fixed size pieces. Default: 1,000 lines 
-	 * per output file, and whatever lines are left for the 
-	 * last split. Output splits naming convention: prefix + counter.
+	 * Split a file into fixed size pieces with specified number of 
+	 * lines. Output splits naming convention: prefix + counter.
 	 * Default prefix is "x". Default counter is aa, ab, ..., zz, 
 	 * zaa, zab, ..., zzz, zzaa, etc. For example: xaa, xab, etc.
+	 * This is the default option for 'split'.
 	 * @param fileName String of source file name
-	 * @throws IOException when source file could not be read or 
-	 * output splits could not be written
+	 * @param prefix String of output file prefix (default is 'x')
+	 * @param linesPerFile Int of lines to have in the output file
+	 * (default is 1,000 lines)
+	 * @throws Exception
 	 */
-	public void splitFile(String fileName);
+	public void splitFileByLines(String fileName, String prefix, int linesPerFile) 
+			throws Exception;
 	
 	/**
 	 * Split a file into fixed size pieces with specified number of 
@@ -25,130 +28,16 @@ public interface Split extends Application {
 	 * Default prefix is "x". Default counter is aa, ab, ..., zz, 
 	 * zaa, zab, ..., zzz, zzaa, etc. For example: xaa, xab, etc.
 	 * @param fileName String of source file name
-	 * @param linesPerFile Int of lines to have in the output file 
-	 * @throws IOException when source file could not be read or 
-	 * output splits could not be written
+	 * @param prefix String of output file prefix (default is 'x')
+	 * @param bytesPerFile String of number of bytes of content to 
+	 * fit into a file. Can have a suffix of either 'b', 'k', or 'm'.
+	 * Impact of suffix:
+	 * 'b' - multiply the bytes by 512
+	 * 'k' - multiply the bytes by 1024
+	 * 'm' - multiply the bytes by 1048576
+	 * @throws Exception
 	 */
-	public void splitFileByLines(String fileName, int linesPerFile);
-	
-	/**
-	 * Split a file into fixed size pieces with the specified bytes. 
-	 * Output splits naming convention: prefix + counter. Default 
-	 * prefix is "x". Default counter is aa, ab, ..., zz, zaa, zab, 
-	 * ..., zzz, zzaa, etc. For example: xaa, xab, etc.
-	 * @param fileName String of source file name
-	 * @param bytesPerFile Int of bytes of each file split
-	 * @throws IOException when source file could not be read or 
-	 * output splits could not be written
-	 */
-	public void splitFileBySize(String fileName, int bytesPerFile);
-	
-	/**
-	 * Split a file into fixed size pieces. Default: 1,000 lines 
-	 * per output file, and whatever lines are left for the 
-	 * last split. Output splits naming convention: prefix + counter.
-	 * Default counter is aa, ab, ..., zz, zaa, zab, ..., zzz, zzaa, 
-	 * etc. For example (assuming prefix is "x"): xaa, xab, etc.
-	 * @param fileName String of source file name
-	 * @param prefix String of output file prefix 
-	 * @throws IOException when source file could not be read or 
-	 * output splits could not be written
-	 */
-	public void splitFileWithPrefix(String fileName, String prefix);
-	
-	/**
-	 * Split a file into fixed size pieces with specified number of 
-	 * lines. Output splits naming convention: prefix + counter.
-	 * Default counter is aa, ab, ..., zz, zaa, zab, ..., zzz, zzaa, 
-	 * etc. For example (assuming prefix is "x"): xaa, xab, etc.
-	 * @param fileName String of source file name
-	 * @param prefix String of output file prefix 
-	 * @param linesPerFile Int of lines to have in the output file 
-	 * @throws IOException when source file could not be read or 
-	 * output splits could not be written
-	 */
-	public void splitFileWithPrefixByLines(String fileName, String prefix, int linesPerFile);
-	
-	/**
-	 * Split a file into fixed size pieces with the specified bytes. 
-	 * Output splits naming convention: prefix + counter.
-	 * Default counter is aa, ab, ..., zz, zaa, zab, ..., zzz, zzaa, 
-	 * etc. For example (assuming prefix is "x"): xaa, xab, etc.
-	 * @param fileName String of source file name
-	 * @param prefix String of output file prefix 
-	 * @param bytesPerFile Int of bytes of each file split
-	 * @throws IOException when source file could not be read or 
-	 * output splits could not be written
-	 */
-	public void splitFileWithPrefixBySize(String fileName, String prefix, int bytesPerFile);
-	
-	/**
-	 * Split a Stdin arg into fixed size pieces. Default: 1,000 lines 
-	 * per output file, and whatever lines are left for the 
-	 * last split. Output splits naming convention: prefix + counter.
-	 * Default prefix is "x". Default counter is aa, ab, ..., zz, 
-	 * zaa, zab, ..., zzz, zzaa, etc. For example: xaa, xab, etc.
-	 * @param stdin InputStream of Stdin arg to be split
-	 * @throws IOException when output splits could not be written
-	 */
-	public void splitStdin(InputStream stdin);
-	
-	/**
-	 * Split a Stdin arg into fixed size pieces with specified number 
-	 * of lines. Output splits naming convention: prefix + counter.
-	 * Default prefix is "x". Default counter is aa, ab, ..., zz, 
-	 * zaa, zab, ..., zzz, zzaa, etc. For example: xaa, xab, etc.
-	 * @param stdin InputStream of Stdin arg to be split
-	 * @param linesPerFile Int of lines to have in the output file
-	 * @throws IOException when output splits could not be written
-	 */
-	public void splitStdinByLines(InputStream stdin, int linesPerFile);
-	
-	/**
-	 * Split a Stdin arg into fixed size pieces with the specified 
-	 * bytes.Output splits naming convention: prefix + counter.
-	 * Default prefix is "x". Default counter is aa, ab, ..., zz, 
-	 * zaa, zab, ..., zzz, zzaa, etc. For example: xaa, xab, etc.
-	 * @param stdin InputStream of Stdin arg to be split
-	 * @param bytesPerFile Int of bytes of each file split
-	 * @throws IOException when output splits could not be written
-	 */
-	public void splitStdinBySize(InputStream stdin, int bytesPerFile);
-	
-	/**
-	 * Split a Stdin arg into fixed size pieces. Default: 1,000 lines 
-	 * per output file, and whatever lines are left for the 
-	 * last split. Output splits naming convention: prefix + counter.
-	 * Default counter is aa, ab, ..., zz, zaa, zab, ..., zzz, zzaa, 
-	 * etc. For example (assuming prefix is "x"): xaa, xab, etc.
-	 * @param stdin InputStream of Stdin arg to be split
-	 * @param prefix String of output file prefix
-	 * @throws IOException when output splits could not be written
-	 */
-	public void splitStdinWithPrefix(InputStream stdin, String prefix);
-	
-	/**
-	 * Split a Stdin arg into fixed size pieces with specified number 
-	 * of lines. Output splits naming convention: prefix + counter.
-	 * Default counter is aa, ab, ..., zz, zaa, zab, ..., zzz, zzaa, 
-	 * etc. For example (assuming prefix is "x"): xaa, xab, etc.
-	 * @param stdin InputStream of Stdin arg to be split
-	 * @param prefix String of output file prefix
-	 * @param linesPerFile Int of lines to have in the output file
-	 * @throws IOException when output splits could not be written
-	 */
-	public void splitStdinWithPrefixByLines(InputStream stdin, String prefix, int linesPerFile);
-	
-	/**
-	 * Split a Stdin arg into fixed size pieces with the specified 
-	 * bytes. Output splits naming convention: prefix + counter.
-	 * Default counter is aa, ab, ..., zz, zaa, zab, ..., zzz, zzaa, 
-	 * etc. For example (assuming prefix is "x"): xaa, xab, etc.
-	 * @param stdin InputStream of Stdin arg to be split
-	 * @param prefix String of output file prefix
-	 * @param bytesPerFile Int of bytes of each file split
-	 * @throws IOException when output splits could not be written
-	 */
-	public void splitStdinWithPrefixBySize(InputStream stdin, String prefix, int bytesPerFile);
+	public void splitFileByBytes(String fileName, String prefix, String bytesPerFile) 
+			throws Exception;
 
 }
