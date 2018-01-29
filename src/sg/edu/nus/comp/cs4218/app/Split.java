@@ -17,8 +17,7 @@ public interface Split extends Application {
 	 * @throws IOException when source file could not be read or 
 	 * output splits could not be written
 	 */
-	public void splitFile(String fileName)
-			throws IOException;
+	public void splitFile(String fileName);
 	
 	/**
 	 * Split a file into fixed size pieces with specified number of 
@@ -30,8 +29,7 @@ public interface Split extends Application {
 	 * @throws IOException when source file could not be read or 
 	 * output splits could not be written
 	 */
-	public void splitFileByLines(String fileName, int linesPerFile)
-			throws IOException;
+	public void splitFileByLines(String fileName, int linesPerFile);
 	
 	/**
 	 * Split a file into fixed size pieces with the specified bytes. 
@@ -43,8 +41,7 @@ public interface Split extends Application {
 	 * @throws IOException when source file could not be read or 
 	 * output splits could not be written
 	 */
-	public void splitFileBySize(String fileName, int bytesPerFile)
-			throws IOException;
+	public void splitFileBySize(String fileName, int bytesPerFile);
 	
 	/**
 	 * Split a file into fixed size pieces. Default: 1,000 lines 
@@ -57,8 +54,7 @@ public interface Split extends Application {
 	 * @throws IOException when source file could not be read or 
 	 * output splits could not be written
 	 */
-	public void splitFileWithPrefix(String fileName, String prefix)
-			throws IOException;
+	public void splitFileWithPrefix(String fileName, String prefix);
 	
 	/**
 	 * Split a file into fixed size pieces with specified number of 
@@ -71,8 +67,7 @@ public interface Split extends Application {
 	 * @throws IOException when source file could not be read or 
 	 * output splits could not be written
 	 */
-	public void splitFileWithPrefixByLines(String fileName, String prefix, int linesPerFile)
-			throws IOException;
+	public void splitFileWithPrefixByLines(String fileName, String prefix, int linesPerFile);
 	
 	/**
 	 * Split a file into fixed size pieces with the specified bytes. 
@@ -85,8 +80,7 @@ public interface Split extends Application {
 	 * @throws IOException when source file could not be read or 
 	 * output splits could not be written
 	 */
-	public void splitFileWithPrefixBySize(String fileName, String prefix, int bytesPerFile)
-			throws IOException;
+	public void splitFileWithPrefixBySize(String fileName, String prefix, int bytesPerFile);
 	
 	/**
 	 * Split a Stdin arg into fixed size pieces. Default: 1,000 lines 
@@ -97,8 +91,7 @@ public interface Split extends Application {
 	 * @param stdin InputStream of Stdin arg to be split
 	 * @throws IOException when output splits could not be written
 	 */
-	public void splitStdin(InputStream stdin)
-			throws IOException;
+	public void splitStdin(InputStream stdin);
 	
 	/**
 	 * Split a Stdin arg into fixed size pieces with specified number 
@@ -109,8 +102,7 @@ public interface Split extends Application {
 	 * @param linesPerFile Int of lines to have in the output file
 	 * @throws IOException when output splits could not be written
 	 */
-	public void splitStdinByLines(InputStream stdin, int linesPerFile)
-			throws IOException;
+	public void splitStdinByLines(InputStream stdin, int linesPerFile);
 	
 	/**
 	 * Split a Stdin arg into fixed size pieces with the specified 
@@ -121,8 +113,7 @@ public interface Split extends Application {
 	 * @param bytesPerFile Int of bytes of each file split
 	 * @throws IOException when output splits could not be written
 	 */
-	public void splitStdinBySize(InputStream stdin, int bytesPerFile)
-			throws IOException;
+	public void splitStdinBySize(InputStream stdin, int bytesPerFile);
 	
 	/**
 	 * Split a Stdin arg into fixed size pieces. Default: 1,000 lines 
@@ -134,8 +125,7 @@ public interface Split extends Application {
 	 * @param prefix String of output file prefix
 	 * @throws IOException when output splits could not be written
 	 */
-	public void splitStdinWithPrefix(InputStream stdin, String prefix)
-			throws IOException;
+	public void splitStdinWithPrefix(InputStream stdin, String prefix);
 	
 	/**
 	 * Split a Stdin arg into fixed size pieces with specified number 
@@ -147,8 +137,7 @@ public interface Split extends Application {
 	 * @param linesPerFile Int of lines to have in the output file
 	 * @throws IOException when output splits could not be written
 	 */
-	public void splitStdinWithPrefixByLines(InputStream stdin, String prefix, int linesPerFile)
-			throws IOException;
+	public void splitStdinWithPrefixByLines(InputStream stdin, String prefix, int linesPerFile);
 	
 	/**
 	 * Split a Stdin arg into fixed size pieces with the specified 
@@ -160,7 +149,6 @@ public interface Split extends Application {
 	 * @param bytesPerFile Int of bytes of each file split
 	 * @throws IOException when output splits could not be written
 	 */
-	public void splitStdinWithPrefixBySize(InputStream stdin, String prefix, int bytesPerFile)
-			throws IOException;
+	public void splitStdinWithPrefixBySize(InputStream stdin, String prefix, int bytesPerFile);
 
 }
