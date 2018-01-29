@@ -63,7 +63,7 @@ public class ShellImpl implements Shell {
 		String[] resultArr = new String[argsArray.length];
 		System.arraycopy(argsArray, 0, resultArr, 0, argsArray.length);
 		String patternBQ = "`([^\\n`]*)`";
-		Pattern patternBQp = Pattern.compile(patternBQ);
+//		Pattern patternBQp = Pattern.compile(patternBQ);
 
 		for (int i = 0; i < argsArray.length; i++) {
 			Matcher matcherBQ = patternBQp.matcher(argsArray[i]);
@@ -121,7 +121,7 @@ public class ShellImpl implements Shell {
 		} else if (("echo").equals(app)) {// echo [args]...
 			absApp = new EchoApplication();
 		} else if (("head").equals(app)) {// head [OPTIONS] [FILE]
-			absApp = new HeadApplication();
+			absApp = new HeadApplication()
 		} else if (("tail").equals(app)) {// tail [OPTIONS] [FILE]
 			absApp = new TailApplication();
 		} else { // invalid command
@@ -141,7 +141,7 @@ public class ShellImpl implements Shell {
 	 * 
 	 * @throws ShellException
 	 *             If file is not found.
-	 */
+	 *
 	public static InputStream openInputRedir(String inputStreamS)
 			throws ShellException {
 		File inputFile = new File(inputStreamS);
@@ -166,8 +166,7 @@ public class ShellImpl implements Shell {
 	 * @throws ShellException
 	 *             If file destination cannot be opened or inaccessible.
 	 */
-	public static OutputStream openOutputRedir(String outputStreamS)
-			throws ShellException {
+	public static OutputStream openOutputRedir(String outputStreamS){
 		File outputFile = new File(outputStreamS);
 		FileOutputStream fOutputStream = null;
 		try {
