@@ -11,8 +11,6 @@ import sg.edu.nus.comp.cs4218.exception.AbstractApplicationException;
 import sg.edu.nus.comp.cs4218.exception.ShellException;
 import sg.edu.nus.comp.cs4218.impl.app.CatApplication;
 import sg.edu.nus.comp.cs4218.impl.app.EchoApplication;
-import sg.edu.nus.comp.cs4218.impl.app.HeadApplication;
-import sg.edu.nus.comp.cs4218.impl.app.TailApplication;
 
 /**
  * A Shell is a command interpreter and forms the backbone of the entire
